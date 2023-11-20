@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-12-2021 a las 12:47:27
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.0.13
+-- Tiempo de generación: 20-11-2023 a las 06:21:57
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,9 +27,6 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `anime_db`
 --
 
-CREATE DATABASE anime;
-USE anime;
-
 CREATE TABLE `anime_db` (
   `id_anime` int(11) NOT NULL,
   `tipo` varchar(30) NOT NULL,
@@ -42,14 +39,13 @@ CREATE TABLE `anime_db` (
   `calificacion` int(1) NOT NULL DEFAULT 5,
   `fecha_registro` datetime NOT NULL DEFAULT current_timestamp(),
   `img` varchar(30) NOT NULL DEFAULT 'no asignado'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `anime_db`
 --
 
 INSERT INTO `anime_db` (`id_anime`, `tipo`, `titulo`, `genero`, `descripcion`, `fecha_estreno`, `estado`, `capitulos`, `calificacion`, `fecha_registro`, `img`) VALUES
-(1, 'Anime', 'Shinrei Tantei Yakumo', 'Misterio,Shoujo,Sobrenatural,Terror', 'La historia se centra en un chico de secundaria , Yakumo Saitou que nació con ojos de distintos colores. Su ojo izquierdo rojo tiene la habilidad de ver espíritus y fantasmas. así con la ayuda de Haruka Ozawa empiezan la investigación de las distintas causas de los espíritus todavía vinculados con la tierra.', '2010-10-03', 'Finalizado', 13, 5, '2021-05-20 13:34:57', 'asignado'),
 (2, 'Anime', 'Mieruko-chan', 'Comedia,Sobrenatural,Terror', 'Miko es una típica estudiante de preparatoria cuya vida da un vuelco cuando de repente comienza a ver monstruos espantosos y horribles. A pesar de estar completamente aterrorizada, Miko sigue con su vida diaria, fingiendo no darse cuenta de los horrores que la rodean. Debe soportar el miedo para mantenerse a ella y a su amiga Hana fuera de peligro, incluso si eso significa enfrentarse cara a cara con lo peor. Mezclando comedia y horror, Mieruko-chan cuenta la historia de una chica que trata de lidiar con lo paranormal actuando indiferente hacia él.', '2021-10-10', 'En emision', 12, 5, '2021-12-10 11:08:32', 'no asignado'),
 (3, 'Anime', 'Gleipnir', 'Acción,Ecchi,Misterio,Seinen,Sobrenatural', 'Shuichi Kagaya es un chico ordinario de preparatoria en una pequeña y aburrida ciudad. Sin embargo, cuando una chica se ve atrapada en un incendio en un almacén, Shuichi usa su poder misterioso, transformarse en un perro peludo de gran tamaño con un enorme revólver y una cremallera en la espalda. Él salva la vida de la chica, quien decide guardar su secreto. Pero ella se encuentra buscando a su hermana, quien mató a su familia, y no le importará lo degradante que sea: usará a Shuichi para cumplir su misión.', '2020-04-05', 'Finalizado', 13, 5, '2021-12-10 11:10:29', 'no asignado'),
 (4, 'Anime', 'Death Note', 'Misterio,Policía,Psicológico,Sobrenatural,Suspenso', 'Light Yagami es un excelente estudiante japonés que ha tenido una vida aburrida. Esto cambia radicalmente cuando encuentra tirado en el suelo un cuaderno conocido como Death Note (Libreta de la Muerte), un cuaderno perdido por Ryuk, un Shinigami (Dios de la muerte). Cualquier humano cuyo nombre esté escrito en el cuaderno morirá, y ahora Light ha decidido utilizar este poder para crear un mundo perfecto sin criminales. Pero cuando los criminales comienzan a morir de forma masiva, las autoridades envían al legendario detective L en busca del asesino. Con L pisándole los talones, Podrá mantener Light su noble propósito incluso arriesgando su vida.', '2007-10-03', 'Finalizado', 36, 5, '2021-12-10 11:13:26', 'no asignado'),
@@ -60,7 +56,11 @@ INSERT INTO `anime_db` (`id_anime`, `tipo`, `titulo`, `genero`, `descripcion`, `
 (9, 'Anime', 'Sword Art Online', 'Acción,Aventuras,Fantasía,Juegos,Romance', 'Escapar es imposible hasta terminar el juego; un game over significaría una verdadera \"muerte\". Sin saber la \"verdad\" de la siguiente generación del Multijugador Masivo Online, \'Sword Art Online(SAO)\', con 10 mil usuarios unidos juntos abriendo las cortinas para esta cruel batalla a muerte. Participando solo en SAO, el protagonista Kirito ha aceptado inmediatamente la \"verdad\" de este MMO. <br/><br/> Y, en el mundo del juego, un gigante castillo flotante llamado \'Aincrad\', Kirito se distinguió a si mismo como un jugador solitario. Apuntando a terminar el juego al alcanzar la planta mas alta el solo continua avanzando arriesgadamente hasta que recibe una invitación a la fuerza de una guerrera y esgrimista experta, Asuna, con la cual tendra que hacer equipo.', '2012-07-07', 'Finalizado', 25, 5, '2021-12-10 11:26:58', 'no asignado'),
 (10, 'Anime', 'Fairy Tail', 'Acción,Aventuras,Comedia,Fantasía,Magia,Shounen', 'Fairy Tail cuenta la historia de un joven mago llamado Natsu en la búsqueda de su maestro y padre adoptivo Igneel que resulta ser un dragón. Por ello se unió a Fairy Tail, un gremio de magos que es famoso por los destrozos y daños que provocan en diversas ciudades (lo cual no debería ser así). El mundo de Fairy Tail gira alrededor de los magos (los cuales poco tienen que ver con la idea general del mago común) que realizan encargos a cambio de dinero, similar a un cazarecompensas. Natsu conoce a Lucy, una guapa muchacha cuyo sueño era ingresar a un gremio de magos, específicamente, a Fairy Tail, lo cual consigue gracias a la ayuda de Natsu. De ahí en adelante, la historia sigue los movimientos de esta pareja de magos los cuales se ven envueltos en un sin número de aventuras antes de conseguir la meta final de encontrar a Igneel.', '2009-10-12', 'Finalizado', 175, 5, '2021-12-10 11:29:07', 'no asignado'),
 (11, 'Anime', 'Shingeki no Kyojin', 'Acción,Drama,Fantasía,Shounen,Superpoderes', 'La historia nos traslada a un mundo en el que la humanidad estuvo a punto de ser exterminada cientos de años atrás por los gigantes. Los gigantes son enormes, parecen no ser inteligentes y devoran seres humanos. Lo peor es que parece que lo hacen por placer y no por alimentarse. Una pequeña parte de la humanidad ha conseguido sobrevivir protegiéndose en una ciudad con unos altísimos muros, más altos que el mayor de los gigantes. La ciudad vive su vida tranquila, y hace más de 100 años que ningún gigante aparece por allí. Eren y su hermana adoptiva Mikasa son todavía unos adolescentes cuando ven algo horroroso: un gigante mucho mayor que todos los que la humanidad había conocido hasta el momento está destruyendo los muros de la ciudad. No pasa mucho tiempo hasta que los gigantes entran por el hueco abierto en el muro y comienzan a devorar a la gente.', '2013-04-07', 'Finalizado', 25, 5, '2021-12-10 11:31:47', 'no asignado'),
-(12, 'Anime', 'Fullmetal Alchemist', 'Acción,Aventuras,Comedia,Drama,Fantasía,Magia,MilitarShounen', 'Tras perder a su madre, Alphonse y Edward Elric tratan de revivirla usando la ciencia prohibida de la alquimia humana. Sin embargo, la alquimia opera bajo la teoría del cambio equivalente y romper el tabú de la alquimia humana acarrea un alto precio. Ed pierde una de sus piernas y Al su cuerpo. Ed logra sellar el alma de Al dentro de una gran armadura, a costa de su brazo. Años después, Ed (ahora con dos extremidades mecánicas) y Al (aún atrapado en la armadura) dejan su casa de la niñez, cada uno preocupado por la felicidad del otro. Ed, quien tuvo un talento y habilidad natural para la alquimia, se convierte en un alquimista con certificado nacional y pronto es conocido en todas partes como el ?Alquimista Fullmetal?. El verdadero objetivo de ambos hermanos es buscar cualquier información sobre la legendaria Piedra Filosofal, con la esperanza de que ésta les permita recobrar sus cuerpos. Todas sus esperanzas descansan en la mítica piedra, que incluso puede no existir.', '2003-10-04', 'Finalizado', 51, 5, '2021-12-10 11:33:21', 'no asignado');
+(12, 'Anime', 'Fullmetal Alchemist', 'Acción,Aventuras,Comedia,Drama,Fantasía,Magia,MilitarShounen', 'Tras perder a su madre, Alphonse y Edward Elric tratan de revivirla usando la ciencia prohibida de la alquimia humana. Sin embargo, la alquimia opera bajo la teoría del cambio equivalente y romper el tabú de la alquimia humana acarrea un alto precio. Ed pierde una de sus piernas y Al su cuerpo. Ed logra sellar el alma de Al dentro de una gran armadura, a costa de su brazo. Años después, Ed (ahora con dos extremidades mecánicas) y Al (aún atrapado en la armadura) dejan su casa de la niñez, cada uno preocupado por la felicidad del otro. Ed, quien tuvo un talento y habilidad natural para la alquimia, se convierte en un alquimista con certificado nacional y pronto es conocido en todas partes como el ?Alquimista Fullmetal?. El verdadero objetivo de ambos hermanos es buscar cualquier información sobre la legendaria Piedra Filosofal, con la esperanza de que ésta les permita recobrar sus cuerpos. Todas sus esperanzas descansan en la mítica piedra, que incluso puede no existir.', '2003-10-04', 'Finalizado', 51, 5, '2021-12-10 11:33:21', 'no asignado'),
+(20, 'Anime', 'Hunter x Hunter', 'Acción, Aventura, Fantasía oscura, Comedia dramática, Psicológico, Tragedia', 'Gon Freecs trabaja duro para convertirse en un cazador y buscar al padre que nunca conoció.', '2011-10-02', 'Finalizado', 148, 5, '2023-11-19 21:50:23', 'no asignado'),
+(22, 'Anime', 'My hero Academia', 'Acción,drama,escolar,shonen,superhéroes', 'Estamos en un mundo donde abundan los superhéroes (y los supervillanos). Los mejores humanos son entrenados en la Academia de Héroes para optimizar sus poderes. Entre la minoría normal, sin poder alguno, aparece Izuku Midoriya, dispuesto a ser una excepción y formarse en la Academia.', '2016-04-03', 'En emision', 137, 5, '2023-11-19 22:43:09', 'no asignado'),
+(23, 'Anime', 'Dr Stone', 'Aventura,ciencia ficción apocalíptica,comedia', 'La historia cuenta las aventuras de Senku y Taiju, dos adolescentes que se ven atrapados en un mundo post-apocalíptico en el que la raza humana se ha convertido en piedra y ellos buscan la manera de revertir la petrificación en la mayor cantidad de personas posibles', '2020-07-10', 'En emision', 57, 5, '2023-11-19 23:09:22', 'no asignado'),
+(24, 'Anime', 'Little Witch Academy', 'Acción,aventura,comedia,escolar,fantasía,magia', 'Little Witch Academia es un anime creado por Yō Yoshinari y producido por Trigger. La historia transcurre en la Academia Mágica Luna Nova, una prestigiosa escuela femenina en la cual las jóvenes estudian para convertirse en brujas.', '2017-01-08', 'Finalizado', 25, 5, '2023-11-19 23:13:59', 'no asignado');
 
 -- --------------------------------------------------------
 
@@ -72,7 +72,7 @@ CREATE TABLE `anime_favorito` (
   `id_favorito` int(11) NOT NULL,
   `fk_usuario` int(11) NOT NULL,
   `fk_anime` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `anime_favorito`
@@ -97,26 +97,13 @@ CREATE TABLE `listado_capitulo` (
   `enlace` varchar(400) NOT NULL DEFAULT 'http:',
   `visible` int(11) NOT NULL DEFAULT 0,
   `fk_anime` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `listado_capitulo`
 --
 
 INSERT INTO `listado_capitulo` (`id_capitulo`, `numero_cap`, `enlace`, `visible`, `fk_anime`) VALUES
-(1, 1, 'https://www.yourupload.com/watch/8v5vfcVkdMoE', 1, 1),
-(2, 2, 'https://www.yourupload.com/watch/8v5vfcVkdMoE', 1, 1),
-(3, 3, 'https://www.yourupload.com/watch/8v5vfcVkdMoE', 1, 1),
-(4, 4, 'https://www.yourupload.com/watch/8v5vfcVkdMoE', 1, 1),
-(5, 5, 'https://www.yourupload.com/watch/8v5vfcVkdMoE', 1, 1),
-(6, 6, 'https://www.yourupload.com/watch/8v5vfcVkdMoE', 1, 1),
-(7, 7, 'https://www.yourupload.com/watch/8v5vfcVkdMoE', 1, 1),
-(8, 8, 'https://www.yourupload.com/watch/8v5vfcVkdMoE', 1, 1),
-(9, 9, 'https://www.yourupload.com/watch/8v5vfcVkdMoE', 1, 1),
-(10, 10, 'https://www.yourupload.com/watch/8v5vfcVkdMoE', 1, 1),
-(11, 11, 'https://www.yourupload.com/watch/8v5vfcVkdMoE', 1, 1),
-(12, 12, 'https://www.yourupload.com/watch/8v5vfcVkdMoE', 1, 1),
-(13, 13, 'http:', 0, 1),
 (14, 1, 'https://www.yourupload.com/watch/t3F5xf33Y001', 1, 2),
 (15, 2, 'http:', 0, 2),
 (16, 3, 'http:', 0, 2),
@@ -1090,32 +1077,374 @@ INSERT INTO `listado_capitulo` (`id_capitulo`, `numero_cap`, `enlace`, `visible`
 (984, 48, 'http:', 0, 12),
 (985, 49, 'http:', 0, 12),
 (986, 50, 'http:', 0, 12),
-(987, 51, 'http:', 0, 12);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users`
---
-
-CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `rol` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `username`, `email`, `email_verified_at`, `password`, `rol`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'yakumo', 'yakumo-sahashi@hotmail.com', '2021-12-09 05:43:16', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '0', 'oaH9WwVsjcPw9cy8ORMuyx95nO40HK7NLHNWGui2WumO89DB0y04nTJnkOpt', '2021-12-09 05:43:16', '2021-12-09 05:43:16');
+(987, 51, 'http:', 0, 12),
+(988, 1, 'https://www.yourupload.com/watch/L81VQmK606oh', 1, 20),
+(989, 2, 'https://www.yourupload.com/watch/4i851dTXV1en', 1, 20),
+(990, 3, 'https://www.yourupload.com/watch/LSH5NnKYUjXj', 1, 20),
+(991, 4, 'http:', 0, 20),
+(992, 5, 'http:', 0, 20),
+(993, 6, 'http:', 0, 20),
+(994, 7, 'http:', 0, 20),
+(995, 8, 'http:', 0, 20),
+(996, 9, 'http:', 0, 20),
+(997, 10, 'http:', 0, 20),
+(998, 11, 'http:', 0, 20),
+(999, 12, 'http:', 0, 20),
+(1000, 13, 'http:', 0, 20),
+(1001, 14, 'http:', 0, 20),
+(1002, 15, 'http:', 0, 20),
+(1003, 16, 'http:', 0, 20),
+(1004, 17, 'http:', 0, 20),
+(1005, 18, 'http:', 0, 20),
+(1006, 19, 'http:', 0, 20),
+(1007, 20, 'http:', 0, 20),
+(1008, 21, 'http:', 0, 20),
+(1009, 22, 'http:', 0, 20),
+(1010, 23, 'http:', 0, 20),
+(1011, 24, 'http:', 0, 20),
+(1012, 25, 'http:', 0, 20),
+(1013, 26, 'http:', 0, 20),
+(1014, 27, 'http:', 0, 20),
+(1015, 28, 'http:', 0, 20),
+(1016, 29, 'http:', 0, 20),
+(1017, 30, 'http:', 0, 20),
+(1018, 31, 'http:', 0, 20),
+(1019, 32, 'http:', 0, 20),
+(1020, 33, 'http:', 0, 20),
+(1021, 34, 'http:', 0, 20),
+(1022, 35, 'http:', 0, 20),
+(1023, 36, 'http:', 0, 20),
+(1024, 37, 'http:', 0, 20),
+(1025, 38, 'http:', 0, 20),
+(1026, 39, 'http:', 0, 20),
+(1027, 40, 'http:', 0, 20),
+(1028, 41, 'http:', 0, 20),
+(1029, 42, 'http:', 0, 20),
+(1030, 43, 'http:', 0, 20),
+(1031, 44, 'http:', 0, 20),
+(1032, 45, 'http:', 0, 20),
+(1033, 46, 'http:', 0, 20),
+(1034, 47, 'http:', 0, 20),
+(1035, 48, 'http:', 0, 20),
+(1036, 49, 'http:', 0, 20),
+(1037, 50, 'http:', 0, 20),
+(1038, 51, 'http:', 0, 20),
+(1039, 52, 'http:', 0, 20),
+(1040, 53, 'http:', 0, 20),
+(1041, 54, 'http:', 0, 20),
+(1042, 55, 'http:', 0, 20),
+(1043, 56, 'http:', 0, 20),
+(1044, 57, 'http:', 0, 20),
+(1045, 58, 'http:', 0, 20),
+(1046, 59, 'http:', 0, 20),
+(1047, 60, 'http:', 0, 20),
+(1048, 61, 'http:', 0, 20),
+(1049, 62, 'http:', 0, 20),
+(1050, 63, 'http:', 0, 20),
+(1051, 64, 'http:', 0, 20),
+(1052, 65, 'http:', 0, 20),
+(1053, 66, 'http:', 0, 20),
+(1054, 67, 'http:', 0, 20),
+(1055, 68, 'http:', 0, 20),
+(1056, 69, 'http:', 0, 20),
+(1057, 70, 'http:', 0, 20),
+(1058, 71, 'http:', 0, 20),
+(1059, 72, 'http:', 0, 20),
+(1060, 73, 'http:', 0, 20),
+(1061, 74, 'http:', 0, 20),
+(1062, 75, 'http:', 0, 20),
+(1063, 76, 'http:', 0, 20),
+(1064, 77, 'http:', 0, 20),
+(1065, 78, 'http:', 0, 20),
+(1066, 79, 'http:', 0, 20),
+(1067, 80, 'http:', 0, 20),
+(1068, 81, 'http:', 0, 20),
+(1069, 82, 'http:', 0, 20),
+(1070, 83, 'http:', 0, 20),
+(1071, 84, 'http:', 0, 20),
+(1072, 85, 'http:', 0, 20),
+(1073, 86, 'http:', 0, 20),
+(1074, 87, 'http:', 0, 20),
+(1075, 88, 'http:', 0, 20),
+(1076, 89, 'http:', 0, 20),
+(1077, 90, 'http:', 0, 20),
+(1078, 91, 'http:', 0, 20),
+(1079, 92, 'http:', 0, 20),
+(1080, 93, 'http:', 0, 20),
+(1081, 94, 'http:', 0, 20),
+(1082, 95, 'http:', 0, 20),
+(1083, 96, 'http:', 0, 20),
+(1084, 97, 'http:', 0, 20),
+(1085, 98, 'http:', 0, 20),
+(1086, 99, 'http:', 0, 20),
+(1087, 100, 'http:', 0, 20),
+(1088, 101, 'http:', 0, 20),
+(1089, 102, 'http:', 0, 20),
+(1090, 103, 'http:', 0, 20),
+(1091, 104, 'http:', 0, 20),
+(1092, 105, 'http:', 0, 20),
+(1093, 106, 'http:', 0, 20),
+(1094, 107, 'http:', 0, 20),
+(1095, 108, 'http:', 0, 20),
+(1096, 109, 'http:', 0, 20),
+(1097, 110, 'http:', 0, 20),
+(1098, 111, 'http:', 0, 20),
+(1099, 112, 'http:', 0, 20),
+(1100, 113, 'http:', 0, 20),
+(1101, 114, 'http:', 0, 20),
+(1102, 115, 'http:', 0, 20),
+(1103, 116, 'http:', 0, 20),
+(1104, 117, 'http:', 0, 20),
+(1105, 118, 'http:', 0, 20),
+(1106, 119, 'http:', 0, 20),
+(1107, 120, 'http:', 0, 20),
+(1108, 121, 'http:', 0, 20),
+(1109, 122, 'http:', 0, 20),
+(1110, 123, 'http:', 0, 20),
+(1111, 124, 'http:', 0, 20),
+(1112, 125, 'http:', 0, 20),
+(1113, 126, 'http:', 0, 20),
+(1114, 127, 'http:', 0, 20),
+(1115, 128, 'http:', 0, 20),
+(1116, 129, 'http:', 0, 20),
+(1117, 130, 'http:', 0, 20),
+(1118, 131, 'http:', 0, 20),
+(1119, 132, 'http:', 0, 20),
+(1120, 133, 'http:', 0, 20),
+(1121, 134, 'http:', 0, 20),
+(1122, 135, 'http:', 0, 20),
+(1123, 136, 'http:', 0, 20),
+(1124, 137, 'http:', 0, 20),
+(1125, 138, 'http:', 0, 20),
+(1126, 139, 'http:', 0, 20),
+(1127, 140, 'http:', 0, 20),
+(1128, 141, 'http:', 0, 20),
+(1129, 142, 'http:', 0, 20),
+(1130, 143, 'http:', 0, 20),
+(1131, 144, 'http:', 0, 20),
+(1132, 145, 'http:', 0, 20),
+(1133, 146, 'http:', 0, 20),
+(1134, 147, 'http:', 0, 20),
+(1135, 148, 'http:', 0, 20),
+(1228, 1, 'https://www.yourupload.com/watch/oy5BBuu387xh', 1, 22),
+(1229, 2, 'https://www.yourupload.com/watch/8bB1BprO5QRj', 1, 22),
+(1230, 3, 'https://www.yourupload.com/watch/XJvyqLc175WY', 1, 22),
+(1231, 4, 'http:', 0, 22),
+(1232, 5, 'http:', 0, 22),
+(1233, 6, 'http:', 0, 22),
+(1234, 7, 'http:', 0, 22),
+(1235, 8, 'http:', 0, 22),
+(1236, 9, 'http:', 0, 22),
+(1237, 10, 'http:', 0, 22),
+(1238, 11, 'http:', 0, 22),
+(1239, 12, 'http:', 0, 22),
+(1240, 13, 'http:', 0, 22),
+(1241, 14, 'http:', 0, 22),
+(1242, 15, 'http:', 0, 22),
+(1243, 16, 'http:', 0, 22),
+(1244, 17, 'http:', 0, 22),
+(1245, 18, 'http:', 0, 22),
+(1246, 19, 'http:', 0, 22),
+(1247, 20, 'http:', 0, 22),
+(1248, 21, 'http:', 0, 22),
+(1249, 22, 'http:', 0, 22),
+(1250, 23, 'http:', 0, 22),
+(1251, 24, 'http:', 0, 22),
+(1252, 25, 'http:', 0, 22),
+(1253, 26, 'http:', 0, 22),
+(1254, 27, 'http:', 0, 22),
+(1255, 28, 'http:', 0, 22),
+(1256, 29, 'http:', 0, 22),
+(1257, 30, 'http:', 0, 22),
+(1258, 31, 'http:', 0, 22),
+(1259, 32, 'http:', 0, 22),
+(1260, 33, 'http:', 0, 22),
+(1261, 34, 'http:', 0, 22),
+(1262, 35, 'http:', 0, 22),
+(1263, 36, 'http:', 0, 22),
+(1264, 37, 'http:', 0, 22),
+(1265, 38, 'http:', 0, 22),
+(1266, 39, 'http:', 0, 22),
+(1267, 40, 'http:', 0, 22),
+(1268, 41, 'http:', 0, 22),
+(1269, 42, 'http:', 0, 22),
+(1270, 43, 'http:', 0, 22),
+(1271, 44, 'http:', 0, 22),
+(1272, 45, 'http:', 0, 22),
+(1273, 46, 'http:', 0, 22),
+(1274, 47, 'http:', 0, 22),
+(1275, 48, 'http:', 0, 22),
+(1276, 49, 'http:', 0, 22),
+(1277, 50, 'http:', 0, 22),
+(1278, 51, 'http:', 0, 22),
+(1279, 52, 'http:', 0, 22),
+(1280, 53, 'http:', 0, 22),
+(1281, 54, 'http:', 0, 22),
+(1282, 55, 'http:', 0, 22),
+(1283, 56, 'http:', 0, 22),
+(1284, 57, 'http:', 0, 22),
+(1285, 58, 'http:', 0, 22),
+(1286, 59, 'http:', 0, 22),
+(1287, 60, 'http:', 0, 22),
+(1288, 61, 'http:', 0, 22),
+(1289, 62, 'http:', 0, 22),
+(1290, 63, 'http:', 0, 22),
+(1291, 64, 'http:', 0, 22),
+(1292, 65, 'http:', 0, 22),
+(1293, 66, 'http:', 0, 22),
+(1294, 67, 'http:', 0, 22),
+(1295, 68, 'http:', 0, 22),
+(1296, 69, 'http:', 0, 22),
+(1297, 70, 'http:', 0, 22),
+(1298, 71, 'http:', 0, 22),
+(1299, 72, 'http:', 0, 22),
+(1300, 73, 'http:', 0, 22),
+(1301, 74, 'http:', 0, 22),
+(1302, 75, 'http:', 0, 22),
+(1303, 76, 'http:', 0, 22),
+(1304, 77, 'http:', 0, 22),
+(1305, 78, 'http:', 0, 22),
+(1306, 79, 'http:', 0, 22),
+(1307, 80, 'http:', 0, 22),
+(1308, 81, 'http:', 0, 22),
+(1309, 82, 'http:', 0, 22),
+(1310, 83, 'http:', 0, 22),
+(1311, 84, 'http:', 0, 22),
+(1312, 85, 'http:', 0, 22),
+(1313, 86, 'http:', 0, 22),
+(1314, 87, 'http:', 0, 22),
+(1315, 88, 'http:', 0, 22),
+(1316, 89, 'http:', 0, 22),
+(1317, 90, 'http:', 0, 22),
+(1318, 91, 'http:', 0, 22),
+(1319, 92, 'http:', 0, 22),
+(1320, 93, 'http:', 0, 22),
+(1321, 94, 'http:', 0, 22),
+(1322, 95, 'http:', 0, 22),
+(1323, 96, 'http:', 0, 22),
+(1324, 97, 'http:', 0, 22),
+(1325, 98, 'http:', 0, 22),
+(1326, 99, 'http:', 0, 22),
+(1327, 100, 'http:', 0, 22),
+(1328, 101, 'http:', 0, 22),
+(1329, 102, 'http:', 0, 22),
+(1330, 103, 'http:', 0, 22),
+(1331, 104, 'http:', 0, 22),
+(1332, 105, 'http:', 0, 22),
+(1333, 106, 'http:', 0, 22),
+(1334, 107, 'http:', 0, 22),
+(1335, 108, 'http:', 0, 22),
+(1336, 109, 'http:', 0, 22),
+(1337, 110, 'http:', 0, 22),
+(1338, 111, 'http:', 0, 22),
+(1339, 112, 'http:', 0, 22),
+(1340, 113, 'http:', 0, 22),
+(1341, 114, 'http:', 0, 22),
+(1342, 115, 'http:', 0, 22),
+(1343, 116, 'http:', 0, 22),
+(1344, 117, 'http:', 0, 22),
+(1345, 118, 'http:', 0, 22),
+(1346, 119, 'http:', 0, 22),
+(1347, 120, 'http:', 0, 22),
+(1348, 121, 'http:', 0, 22),
+(1349, 122, 'http:', 0, 22),
+(1350, 123, 'http:', 0, 22),
+(1351, 124, 'http:', 0, 22),
+(1352, 125, 'http:', 0, 22),
+(1353, 126, 'http:', 0, 22),
+(1354, 127, 'http:', 0, 22),
+(1355, 128, 'http:', 0, 22),
+(1356, 129, 'http:', 0, 22),
+(1357, 130, 'http:', 0, 22),
+(1358, 131, 'http:', 0, 22),
+(1359, 132, 'http:', 0, 22),
+(1360, 133, 'http:', 0, 22),
+(1361, 134, 'http:', 0, 22),
+(1362, 135, 'http:', 0, 22),
+(1363, 136, 'http:', 0, 22),
+(1364, 137, 'http:', 0, 22),
+(1365, 1, 'https://www.yourupload.com/watch/oDp7I0fm8Qt8', 1, 23),
+(1366, 2, 'https://www.yourupload.com/watch/ga53A87MhimK', 1, 23),
+(1367, 3, 'https://www.yourupload.com/watch/7Yk483pS0pT2', 1, 23),
+(1368, 4, 'http:', 0, 23),
+(1369, 5, 'http:', 0, 23),
+(1370, 6, 'http:', 0, 23),
+(1371, 7, 'http:', 0, 23),
+(1372, 8, 'http:', 0, 23),
+(1373, 9, 'http:', 0, 23),
+(1374, 10, 'http:', 0, 23),
+(1375, 11, 'http:', 0, 23),
+(1376, 12, 'http:', 0, 23),
+(1377, 13, 'http:', 0, 23),
+(1378, 14, 'http:', 0, 23),
+(1379, 15, 'http:', 0, 23),
+(1380, 16, 'http:', 0, 23),
+(1381, 17, 'http:', 0, 23),
+(1382, 18, 'http:', 0, 23),
+(1383, 19, 'http:', 0, 23),
+(1384, 20, 'http:', 0, 23),
+(1385, 21, 'http:', 0, 23),
+(1386, 22, 'http:', 0, 23),
+(1387, 23, 'http:', 0, 23),
+(1388, 24, 'http:', 0, 23),
+(1389, 25, 'http:', 0, 23),
+(1390, 26, 'http:', 0, 23),
+(1391, 27, 'http:', 0, 23),
+(1392, 28, 'http:', 0, 23),
+(1393, 29, 'http:', 0, 23),
+(1394, 30, 'http:', 0, 23),
+(1395, 31, 'http:', 0, 23),
+(1396, 32, 'http:', 0, 23),
+(1397, 33, 'http:', 0, 23),
+(1398, 34, 'http:', 0, 23),
+(1399, 35, 'http:', 0, 23),
+(1400, 36, 'http:', 0, 23),
+(1401, 37, 'http:', 0, 23),
+(1402, 38, 'http:', 0, 23),
+(1403, 39, 'http:', 0, 23),
+(1404, 40, 'http:', 0, 23),
+(1405, 41, 'http:', 0, 23),
+(1406, 42, 'http:', 0, 23),
+(1407, 43, 'http:', 0, 23),
+(1408, 44, 'http:', 0, 23),
+(1409, 45, 'http:', 0, 23),
+(1410, 46, 'http:', 0, 23),
+(1411, 47, 'http:', 0, 23),
+(1412, 48, 'http:', 0, 23),
+(1413, 49, 'http:', 0, 23),
+(1414, 50, 'http:', 0, 23),
+(1415, 51, 'http:', 0, 23),
+(1416, 52, 'http:', 0, 23),
+(1417, 53, 'http:', 0, 23),
+(1418, 54, 'http:', 0, 23),
+(1419, 55, 'http:', 0, 23),
+(1420, 56, 'http:', 0, 23),
+(1421, 57, 'http:', 0, 23),
+(1422, 1, 'https://www.yourupload.com/watch/6I73i0VcJry2', 1, 24),
+(1423, 2, 'https://www.yourupload.com/watch/0esY4j01UcvK', 1, 24),
+(1424, 3, 'https://www.yourupload.com/watch/34M1So2iXHm7', 1, 24),
+(1425, 4, 'http:', 0, 24),
+(1426, 5, 'http:', 0, 24),
+(1427, 6, 'http:', 0, 24),
+(1428, 7, 'http:', 0, 24),
+(1429, 8, 'http:', 0, 24),
+(1430, 9, 'http:', 0, 24),
+(1431, 10, 'http:', 0, 24),
+(1432, 11, 'http:', 0, 24),
+(1433, 12, 'http:', 0, 24),
+(1434, 13, 'http:', 0, 24),
+(1435, 14, 'http:', 0, 24),
+(1436, 15, 'http:', 0, 24),
+(1437, 16, 'http:', 0, 24),
+(1438, 17, 'http:', 0, 24),
+(1439, 18, 'http:', 0, 24),
+(1440, 19, 'http:', 0, 24),
+(1441, 20, 'http:', 0, 24),
+(1442, 21, 'http:', 0, 24),
+(1443, 22, 'http:', 0, 24),
+(1444, 23, 'http:', 0, 24),
+(1445, 24, 'http:', 0, 24),
+(1446, 25, 'http:', 0, 24);
 
 -- --------------------------------------------------------
 
@@ -1125,13 +1454,13 @@ INSERT INTO `users` (`id`, `username`, `email`, `email_verified_at`, `password`,
 
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
-  `usuario` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
-  `password` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
-  `email` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
-  `sexo` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `usuario` varchar(45) NOT NULL,
+  `password` varchar(300) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `sexo` varchar(20) NOT NULL,
   `rol` int(3) NOT NULL DEFAULT 3,
-  `estado` varchar(30) COLLATE utf8_spanish_ci NOT NULL DEFAULT 'desconectado',
-  `avatar` varchar(15) COLLATE utf8_spanish_ci NOT NULL DEFAULT 'no asignado'
+  `estado` varchar(30) NOT NULL DEFAULT 'desconectado',
+  `avatar` varchar(15) NOT NULL DEFAULT 'no asignado'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -1139,11 +1468,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `usuario`, `password`, `email`, `sexo`, `rol`, `estado`, `avatar`) VALUES
-(1, 'yakumo', '$2y$10$2jSIP147OFMmsZn2XOZJgOT6LfCqHWWPBpr8GsYLGFJ/xCPDobS/O', 'yakumo-sahashi@hotmail.com', 'Masculino', 1, 'desconectado', 'asignado'),
-(2, 'haruka', '$2y$10$OhY5lvMtJNeEo5eXSflBFuYWcGrAh/PoG85w8uQ1oI7DwZSF.qzre', 'haruka-saito@hotmail.com', 'Femenino', 3, 'desconectado', 'asignado'),
-(3, 'sasuke', '$2y$10$30QPY6VxZEL38495Kp3HseWMqrZwKxjjWtFSaL2J8BElbp04hvwXm', 'sasuke-ono@hotmail.com', 'Masculino', 3, 'desconectado', 'asignado'),
-(4, 'prueba', '$2y$10$DwgfO2N0VrZK3/mZULnEIOkuA.ZKqrZWWqbl9CXvVVR9555ESECuy', 'prueba@hotmail.com', 'Masculino', 2, 'desconectado', 'no asignado'),
-(5, 'kirito', '$2y$10$5HJNbokJ8OxV1Axswwrts.ceKOBKwLcUcrri2SYhSK1fb2tzpGOIS', 'kirito-uchiha@hotmail.com', 'Masculino', 3, 'desconectado', 'no asignado');
+(1, 'strider', '$2y$10$ak13EWmuDIS44UFjVUDLNeVj3PeIu2nVCXWIAZpSlEPx/d3PGgZUa', 'aectangel@hotmail.com', 'Masculino', 1, 'conectado', 'asignado');
 
 --
 -- Índices para tablas volcadas
@@ -1168,14 +1493,6 @@ ALTER TABLE `listado_capitulo`
   ADD PRIMARY KEY (`id_capitulo`);
 
 --
--- Indices de la tabla `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_username_unique` (`username`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
-
---
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -1189,7 +1506,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `anime_db`
 --
 ALTER TABLE `anime_db`
-  MODIFY `id_anime` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_anime` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `anime_favorito`
@@ -1201,19 +1518,13 @@ ALTER TABLE `anime_favorito`
 -- AUTO_INCREMENT de la tabla `listado_capitulo`
 --
 ALTER TABLE `listado_capitulo`
-  MODIFY `id_capitulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=988;
-
---
--- AUTO_INCREMENT de la tabla `users`
---
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_capitulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1447;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
