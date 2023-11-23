@@ -9,11 +9,6 @@
 	--letras-btn: #fff;
 }
 
-/* body {
-	background: var(--fondo2) fixed no-repeat 0 0;
-	background-size: cover;
-	background-position: center center;
-} */
 .bg-body {
 	background: var(--fondo2) fixed no-repeat 0 0;
 	background-size: cover;

@@ -18,7 +18,7 @@
         <div class="col-md-3 text-white align-self-center text-center">
             <img src="{{asset('images/waifu/waifu08.png')}}" title="wAIFU" class="img img-fluid py-2">
             <hr class="bg-primary">
-            <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="3" scrolldelay="50" behavior="right"><b>ANIME HIKARI TU SITIO FAVORITO DE ANIME Y MANGA</b></marquee>
+            <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="3" scrolldelay="50" behavior="right"><b>NEOANIMEWORLD TU SITIO FAVORITO PARA VER ANIMES</b></marquee>
             <hr class="bg-primary">
             <div class="btn-group mx-auto d-block mt-4" role="group" aria-label="Basic example">
                 @if($info_capitulo->numero_cap > 1)
